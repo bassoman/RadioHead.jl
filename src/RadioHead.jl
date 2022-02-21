@@ -30,8 +30,8 @@ end
 function computeLength(approxLength::Unit, c::Coax)
     # approxLength is in meters
     # waveLengths = ceil.(toMeters(approxLength).value ./ c.wavelengthUnit)
-    waveLength = ceil.(toMeters(approxLength).value / c.wavelengthUnit)
-    coaxLength = Meter.(waveLength * c.wavelengthUnit)
+    waveLength = ceil(toMeters(approxLength).value / c.wavelengthUnit)
+    coaxLength = Meter(waveLength * c.wavelengthUnit)
     tc = typeof(approxLength)
     if tc == Meter
         return coaxLength
