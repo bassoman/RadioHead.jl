@@ -27,7 +27,7 @@ function partial(divisor::Int64, c::Coax)
     return Meter(c.wavelengthUnit / divisor)
 end
 
-function computeLength(approxLength::Unit, c::Coax)
+function computeLength(approxLength::Meter, c::Coax)
     # approxLength is in meters
     # waveLengths = ceil.(toMeters(approxLength).value ./ c.wavelengthUnit)
     waveLength = ceil(toMeters(approxLength).value / c.wavelengthUnit)
