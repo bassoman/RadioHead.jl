@@ -42,22 +42,21 @@ end
 
 function toMeters(u)
     # convert u to meters
-    return Meter(conversion_factor(typeof(u), Meter) * u.value)
+    return Meter(conversion_factor(u, Meter) * u.value)
 end
 
 function toFeet(u)
     # convert u to feet
-    return Foot(conversion_factor(typeof(u), Foot) * u.value)
+    return Foot(conversion_factor(u, Foot) * u.value)
 end
 
 function conversion_factor(from_u, to_u)
-    # x = []
-    # x[Meter, Foot] = 3.2808
-    # x[Foot, Meter] = 0.3048
-    if from_u == Meter && to_u == Foot
-        return 3.2808
-    elseif from_u == Foot && to_u == Meter
-        return 0.3048
+    x = Dict(
+        (Meter, Foot) => 3.2808,
+        (Foot, Meter) => 0.3048
+    )
+    if typeof(from_u) != to_u
+        return x[(typeof(from_u), to_u)]
     else
         return 1.0
     end
