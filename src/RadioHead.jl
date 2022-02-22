@@ -36,7 +36,7 @@ function computeLength(approxLength::Unit, c::Coax)
     if tc == Meter
         return coaxLength
     else
-        return toFeet.(coaxLength)
+        return toFeet(coaxLength)
     end
 end
 
