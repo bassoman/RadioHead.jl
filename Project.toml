@@ -3,5 +3,8 @@ uuid = "53c9ad8f-c13b-4483-b114-44e3f776af86"
 authors = ["Jon Lancelle <bass@knosys.com>"]
 version = "0.1.0"
 
+[deps]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
 [compat]
 julia = "1.5.1"
