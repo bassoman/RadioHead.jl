@@ -50,6 +50,10 @@ function toFeet(u)
     return Foot(conversion_factor(u, Foot) * u.value)
 end
 
+# function convert_unit(u, new_u{T})
+#     return T(conversion_factor(u, new_u) * u.value)
+# end
+
 function conversion_factor(from_u, to_u)
     x = Dict(
         (Meter, Foot) => 3.2808,
